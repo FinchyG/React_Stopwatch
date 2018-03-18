@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Child } from './Child';
+import { Sibling } from './Sibling';
 
 class Parent extends React.Component {
     constructor(props) {
@@ -18,7 +19,8 @@ class Parent extends React.Component {
     render() {
       return (
         <div>
-            <Child doWhatever={this.changeTheWorld} title={this.state.title} />
+            <Child doWhatever={this.changeTheWorld} />
+            <Sibling  title={this.state.title} />
         </div>
       );
     }
