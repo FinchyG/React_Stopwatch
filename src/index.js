@@ -7,18 +7,19 @@ import { Answer } from './Answer';
 class Parent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {show: true};
-        this.hideTheAnswer = this.hideTheAnswer.bind(this);
+        this.state = {show: false};
+        this.hideOrShowAnswer = this.hideOrShowAnswer.bind(this);
     }
 
-    hideTheAnswer() {
-        this.setState({show: false});
+    hideOrShowAnswer() {
+        const makeVisible = this.state.show === false ? true : false;
+        this.setState({show: makeVisible});
     }
 
     render() {
       return (
         <div>
-            <HideButton onClick={this.hideTheAnswer} />
+            <HideButton onClick={this.hideOrShowAnswer} />
             <Answer show={this.state.show} />
         </div>
       );
