@@ -1,30 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { HideButton } from './HideButton';
-import { Answer } from './Answer';
+import ButtonAnswerPair from './ButtonAnswerPair';
 
-class Parent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {show: false};
-        this.hideOrShowAnswer = this.hideOrShowAnswer.bind(this);
-    }
-
-    hideOrShowAnswer() {
-        const makeVisible = this.state.show === false ? true : false;
-        this.setState({show: makeVisible});
-    }
+class Quiz extends React.Component {
 
     render() {
       return (
         <div>
-            <HideButton onClick={this.hideOrShowAnswer} />
-            <Answer show={this.state.show} />
+            <ButtonAnswerPair />
+            <ButtonAnswerPair />
         </div>
       );
     }
 
 }
 
-ReactDOM.render(<Parent />, document.getElementById('root'));
+ReactDOM.render(<Quiz />, document.getElementById('root'));
