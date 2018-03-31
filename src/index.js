@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ButtonAnswerPair from './ButtonAnswerPair';
+import QuestionComponent from './QuestionComponent';
 
 class Quiz extends React.Component {
 
     render() {
       return (
         <div>
-            <ButtonAnswerPair />
-            <ButtonAnswerPair />
+            <QuestionComponent question="Two plus two?" 
+                               answer="Four" />
+            <QuestionComponent question="Three plus thres"
+                               answer="Six"  />
         </div>
       );
     }

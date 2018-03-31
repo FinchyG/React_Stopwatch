@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { ShowOrHideButton } from './ShowOrHideButton';
 import { Answer } from './Answer';
+import { Question } from './Question';
 
-export default class ButtonAnswerPair extends React.Component {
+export default class QuestionComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {show       : false,
@@ -22,8 +23,9 @@ export default class ButtonAnswerPair extends React.Component {
     render() {
       return (
         <div>
+            <Question question={this.props.question} />
             <ShowOrHideButton onClick={this.hideOrShowAnswer} buttonLabel={this.state.buttonLabel} />
-            <Answer show={this.state.show} />
+            <Answer show={this.state.show} answer={this.props.answer} />
         </div>
       );
     }
