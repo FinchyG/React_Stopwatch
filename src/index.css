@@ -1,5 +1,6 @@
-.red_div {
-  background-color: red;
-  height          : 100px;
-  width:          100px;
+.Flag {
+  display: block;
+  margin: 1em auto;
+  width: 5em;
+  height: 4em;
 }

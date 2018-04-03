@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import QuestionComponent from './QuestionComponent';
 
-class Quiz extends React.Component {
+class Homepage extends React.Component {
 
     render() {
       return (
         <div>
-            <QuestionComponent question="Two plus two?" 
-                               answer="Four" />
-            <QuestionComponent question="Three plus thres"
-                               answer="Six"  />
+            <div>
+            </div>
+            <div>
+            </div>
         </div>
       );
     }
 
 }
 
-ReactDOM.render(<Quiz />, document.getElementById('root'));
+ReactDOM.render(<Homepage />, document.getElementById('root'));
