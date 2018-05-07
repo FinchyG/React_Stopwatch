@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Image_paths} from './Image_paths';;
+import {Image_paths} from './Image_paths';
+import {LeftChevron} from './leftChevron';
+import {RightChevron} from './rightChevron';
+import {ImageCarousel} from './imageCarousel';
 
 class Carousel extends React.Component {
     
@@ -39,9 +42,9 @@ class Carousel extends React.Component {
         return (
             
             <div>
-                <button onClick={this.leftImage}>Left</button>
-                <img src = {Image_paths[this.state.currentImage]} alt="" />
-                <button onClick={this.rightImage}>Right</button>
+                <LeftChevron onClick={this.leftImage} />
+                <ImageCarousel src = {Image_paths[this.state.currentImage]} alt="" />
+                <RightChevron onClick={this.rightImage} />
             </div>
         )
     }
