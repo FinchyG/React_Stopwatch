@@ -10,13 +10,26 @@ class Carousel extends React.Component {
 
         this.state = {currentImage: 0};
 
-        this.leftImage = this.leftImage.bind(this);
+        this.rightImage = this.rightImage.bind(this);
+        this.leftImage  = this.leftImage.bind(this);
 
     }
 
     leftImage() {
 
-        this.setState({currentImage: this.state.currentImage + 1 });
+        let current  = this.state.currentImage;
+        let left     = current === 0 ? Image_paths.length - 1 : current - 1;
+        
+        this.setState({currentImage: left});
+
+    }
+
+    rightImage() {
+
+        let current  = this.state.currentImage;
+        let right    = current === Image_paths.length - 1 ? 0 : current + 1;
+        
+        this.setState({currentImage: right});
 
     }
 
@@ -27,7 +40,8 @@ class Carousel extends React.Component {
             
             <div>
                 <button onClick={this.leftImage}>Left</button>
-                <img src = {Image_paths[this.state.currentImage]} />
+                <img src = {Image_paths[this.state.currentImage]} alt="" />
+                <button onClick={this.rightImage}>Right</button>
             </div>
         )
     }

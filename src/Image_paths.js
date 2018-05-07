@@ -1,4 +1,3 @@
-import React from 'react';
 import questionMark from './images/questionMark.png';
 import entertainment from './images/entertainment.png';
 import general_knowledge from './images/general_knowledge.png';
@@ -9,6 +8,7 @@ import sport from './images/sport.png';
 
 export const Image_paths = [
     questionMark,
+    entertainment,
     general_knowledge,
     geography,
     history,
