@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {CarouselComponent} from './carouselComponent';
+import './quiz.css';
 
 class Carousel extends React.Component {
     

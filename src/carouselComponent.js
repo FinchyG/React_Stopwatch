@@ -3,6 +3,7 @@ import {Image_paths} from './Image_paths';
 import {LeftChevron} from './leftChevron';
 import {RightChevron} from './rightChevron';
 import {ImageCarousel} from './imageCarousel';
+import {TitleHeader} from './titleHeader';
 
 export class CarouselComponent extends React.Component {
     
@@ -41,9 +42,18 @@ export class CarouselComponent extends React.Component {
         return (
             
             <div>
-                <LeftChevron onClick={this.leftImage} />
-                <ImageCarousel src = {Image_paths[this.state.currentImage]} alt="" />
-                <RightChevron onClick={this.rightImage} />
+                <TitleHeader />
+
+                <div className="wideDiv">
+
+                    <div className="narrowDiv">
+                    <LeftChevron onClick={this.leftImage} />
+                    <ImageCarousel src={Image_paths[this.state.currentImage]} alt="" />
+                    <RightChevron onClick={this.rightImage} />
+                    </div>
+                    
+                </div>
+                
             </div>
         )
     }

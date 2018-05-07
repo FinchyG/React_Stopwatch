@@ -1,0 +1,48 @@
+.wideDiv {
+  width: 75%;
+  margin: 3% auto;
+  background: rgb(215, 233, 54);
+  background: rgba(215, 235, 54, 0.5);
+  box-shadow: 1em 1em 1em #000000;
+  -webkit-box-shadow: 1em 1em 1em #000000;
+  -moz-box-shadow: 1em 1em 1em #000000;
+}
+
+.narrowDiv {
+  width: 50%;
+  margin: auto;
+  padding: 1em 0;
+}
+
+.carouselImage {
+  height: 15em;
+  width : 15em;
+}
+
+.leftChevron {
+  position: relative;
+  bottom  : 4em;
+  margin  : 1.5em;
+}
+
+.rightChevron {
+  position: relative;
+  bottom  : 4em;
+  margin  : 1.5em;
+}
+
+h1 {
+  font-size: 5em;
+  font-weight: bold;
+  text-shadow: .05em .05em #999999;
+  text-align: center;
+  font-family: roman_sdregular;
+}
+
+@font-face {
+  font-family: 'roman_sdregular';
+  src: url('./fonts/roman_sd-webfont.woff2') format('woff2'),
+        url('./fonts/roman_sd-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
