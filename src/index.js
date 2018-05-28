@@ -7,13 +7,14 @@ class Stopwatch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            centi_seconds: "99",
+            centi_seconds: "00",
             seconds      : "00",
             minutes      : "00"
         }
 
         this.stopwatch_start = this.stopwatch_start.bind(this);
         this.stopwatch_stop  = this.stopwatch_stop.bind(this);
+        this.stopwatch_reset = this.stopwatch_reset.bind(this);
         
     }
 
@@ -21,48 +22,35 @@ class Stopwatch extends React.Component {
 
         this.timer = setInterval(()=>{
 
-        const centi_secs      = this.state.centi_seconds;        
-        const centi_secs_num  = parseInt(centi_secs) + 1; 
-        const centi_seconds_0 = centi_secs_num < 10 ? "0" + centi_secs_num : centi_secs_num;
-        const centi_seconds   = centi_seconds_0 > 99 ? "00"   : centi_seconds_0;
+        const centi_secs     = this.state.centi_seconds;        
+        const centi_secs_num = parseInt(centi_secs) + 1; 
+        const centi_secs_0   = centi_secs_num < 10 ? "0" + centi_secs_num : centi_secs_num;
+        const centi_seconds  = centi_secs_0 > 99 ? "00"   : centi_secs_0;
         
         const secs       = this.state.seconds;
         const secs_num   = parseInt(secs);
         const secs_add_1 = centi_secs_num > 99 ? secs_num + 1 : secs_num;
-        const seconds_0  = secs_add_1 < 10 ? "0" + secs_add_1 : secs_add_1;
-        const seconds    = seconds_0 > 99 ? "00" : seconds_0;
+        const secs_0     = secs_add_1 < 10 ? "0" + secs_add_1 : secs_add_1;
+        const seconds    = secs_0 > 59 ? "00" : secs_0;
         
-         
-
+        const mins       = this.state.minutes;
+        const mins_num   = parseInt(mins);
+        const mins_add_1 = secs_0 > 59 ? mins_num + 1 : mins_num;
+        const minutes    = mins_add_1 < 10 ? "0" + mins_add_1 : mins_add_1;
         
-        const minutes       = this.state.minutes;
-
-        this.setState({seconds, centi_seconds});},10);
+        this.setState({centi_seconds, seconds, minutes});},10);
     }
 
     stopwatch_stop() {
         clearInterval(this.timer);
     }
 
-
-        
-        /*minutes = parseInt(minutes);
-        seconds = parseInt(seconds);
-
-        seconds = centi_seconds > 99 ? seconds + 1 : seconds;
-        minutes = seconds > 59 ? minutes + 1 : minutes;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        seconds = seconds > 59 ? "0" + 0 : seconds;
-
-        centi_seconds = centi_seconds < 10 ? "0" + centi_seconds : centi_seconds;
-        centi_seconds = centi_seconds > 99 ? "0" + 0 : centi_seconds;
-
-        document.getElementById("watch_display").innerHTML = minutes + ":" + seconds + ":" + centi_seconds;
-        centi_seconds++; */
-
+    stopwatch_reset() {
+       
+        this.setState({centi_seconds: "00", seconds: "00", minutes: "00"});
     
+    }
+
 
 
 
@@ -80,6 +68,8 @@ render(){
                 <button onClick={this.stopwatch_start}>Start</button>
 
                 <button onClick={this.stopwatch_stop}>Stop</button>
+
+                <button onClick={this.stopwatch_reset}>Reset</button>
 
             </div>
 
