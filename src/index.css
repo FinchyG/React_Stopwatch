@@ -1,0 +1,54 @@
+@font-face {
+    
+    font-family: 'digital_dismayregular';
+    src: url('fonts/digital_dismay-webfont.woff2') format('woff2'),
+         url('fonts/digital_dismay-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+
+    font-family: 'future_earthregular';
+    src: url('fonts/future-earth-webfont.woff2') format('woff2'),
+         url('fonts/future-earth-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+p {
+    font-family: digital_dismayregular;
+    font-size: 5em;
+    text-align: center;
+    margin: 0.25em;
+}
+
+#display_background {
+    width: 50%;
+    margin: auto;
+    border: 0.5em solid black;
+    border-radius: 2em;
+    background-color: rgb(195, 197, 201);
+}
+
+#buttons {
+    width: 50%;
+    margin: 1em auto;
+}
+
+button {
+    font-family: future_earthregular;
+    display: block;
+    width: 15em;
+    margin: 1em auto;
+    border: 0.1em solid black;
+    border-radius: 2em;
+}
+
+ul {
+    font-family: future_earthregular;
+    list-style-type: none;
+    text-align: center;
+}
