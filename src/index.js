@@ -7,22 +7,44 @@ class Stopwatch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            centi_seconds: "00",
+            centi_seconds: "99",
             seconds      : "00",
             minutes      : "00"
         }
 
-        this.myCounter = this.myCounter.bind(this);
+        this.stopwatch_start = this.stopwatch_start.bind(this);
+        this.stopwatch_stop  = this.stopwatch_stop.bind(this);
         
     }
 
-    myCounter() {
+    stopwatch_start() {
 
-        const centi_seconds = this.state.centi_seconds + 1;
-        const seconds       = this.state.seconds;
+        this.timer = setInterval(()=>{
+
+        const centi_secs      = this.state.centi_seconds;        
+        const centi_secs_num  = parseInt(centi_secs) + 1; 
+        const centi_seconds_0 = centi_secs_num < 10 ? "0" + centi_secs_num : centi_secs_num;
+        const centi_seconds   = centi_seconds_0 > 99 ? "00"   : centi_seconds_0;
+        
+        const secs       = this.state.seconds;
+        const secs_num   = parseInt(secs);
+        const secs_add_1 = centi_secs_num > 99 ? secs_num + 1 : secs_num;
+        const seconds_0  = secs_add_1 < 10 ? "0" + secs_add_1 : secs_add_1;
+        const seconds    = seconds_0 > 99 ? "00" : seconds_0;
+        
+         
+
+        
         const minutes       = this.state.minutes;
 
-        this.setState({centi_seconds});
+        this.setState({seconds, centi_seconds});},10);
+    }
+
+    stopwatch_stop() {
+        clearInterval(this.timer);
+    }
+
+
         
         /*minutes = parseInt(minutes);
         seconds = parseInt(seconds);
@@ -40,7 +62,8 @@ class Stopwatch extends React.Component {
         document.getElementById("watch_display").innerHTML = minutes + ":" + seconds + ":" + centi_seconds;
         centi_seconds++; */
 
-    }
+    
+
 
 
 render(){
@@ -54,9 +77,9 @@ render(){
 
             <div id="buttons">
 
-                <button onclick="myTimer = setInterval(myCounter, 10)">Start</button>
+                <button onClick={this.stopwatch_start}>Start</button>
 
-                <button onclick="clearInterval(myTimer)">Stop</button>
+                <button onClick={this.stopwatch_stop}>Stop</button>
 
             </div>
 
