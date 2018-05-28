@@ -15,6 +15,7 @@ class Stopwatch extends React.Component {
         this.stopwatch_start = this.stopwatch_start.bind(this);
         this.stopwatch_stop  = this.stopwatch_stop.bind(this);
         this.stopwatch_reset = this.stopwatch_reset.bind(this);
+        this.stopwatch_split = this.stopwatch_split.bind(this);
         
     }
 
@@ -48,6 +49,22 @@ class Stopwatch extends React.Component {
     stopwatch_reset() {
        
         this.setState({centi_seconds: "00", seconds: "00", minutes: "00"});
+
+        var ul         = document.getElementById("splits");
+        while( ul.firstChild ){
+            ul.removeChild( ul.firstChild );
+          }
+    
+    }
+
+    stopwatch_split() {
+
+        var split_time = document.getElementById("watch_display").textContent;
+        var ul         = document.getElementById("splits");
+        var li         = document.createElement("li");
+        
+        li.appendChild(document.createTextNode(split_time));
+        ul.appendChild(li);
     
     }
 
@@ -70,6 +87,8 @@ render(){
                 <button onClick={this.stopwatch_stop}>Stop</button>
 
                 <button onClick={this.stopwatch_reset}>Reset</button>
+
+                <button onClick={this.stopwatch_split}>Split</button>
 
             </div>
 
