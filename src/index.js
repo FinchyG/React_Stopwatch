@@ -1,5 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { StartButton } from './startButton';
+import { StopButton }  from './stopButton';
+import { ResetButton } from './resetButton';
+import { SplitButton } from './splitButton';
+import { UnorderedList } from './unorderedList';
+import { WatchDisplay } from './watchDisplay';
 import './index.css';
 
 class Stopwatch extends React.Component {
@@ -76,24 +82,22 @@ render(){
     return (
 
         <div>
-            <div id="display_background">
-                <p id="watch_display">{this.state.minutes}:{this.state.seconds}:{this.state.centi_seconds}</p>
-            </div>
+
+            <WatchDisplay centi_seconds={this.state.centi_seconds} seconds={this.state.seconds} minutes={this.state.minutes} />
 
             <div id="buttons">
 
-                <button onClick={this.stopwatch_start}>Start</button>
+                <StartButton onClick={this.stopwatch_start} />
 
-                <button onClick={this.stopwatch_stop}>Stop</button>
+                <StopButton onClick={this.stopwatch_stop} />
 
-                <button onClick={this.stopwatch_reset}>Reset</button>
+                <ResetButton onClick={this.stopwatch_reset} />
 
-                <button onClick={this.stopwatch_split}>Split</button>
+                <SplitButton onClick={this.stopwatch_split} />
 
             </div>
 
-            <ul id="splits">
-            </ul>
+            <UnorderedList />
         
         </div>
 
