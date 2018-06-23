@@ -52,7 +52,7 @@ export default class Stopwatch extends React.Component {
                 const mins_add_1 = secs_0 > 59 ? mins_num + 1 : mins_num;
                 const minutes    = mins_add_1 < 10 ? "0" + mins_add_1 : mins_add_1;
                 
-                this.setState({centi_seconds, seconds, minutes});
+                this.setState({centi_seconds: centi_seconds, seconds: seconds, minutes: minutes});
             
             },10);
 
